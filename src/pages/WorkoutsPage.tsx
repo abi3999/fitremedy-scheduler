@@ -1,5 +1,15 @@
 
 const WorkoutsPage = () => {
+  const handleViewDetails = (workoutTitle: string) => {
+    console.log(`View details clicked for: ${workoutTitle}`)
+    alert(`Workout details for ${workoutTitle} coming soon!`)
+  }
+
+  const handleCreatePlan = () => {
+    console.log('Create my plan clicked')
+    alert('Custom workout plan creator coming soon!')
+  }
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-fitness-red-700 mb-6">Workout Programs</h1>
@@ -14,7 +24,10 @@ const WorkoutsPage = () => {
               <h2 className="text-xl font-bold text-fitness-red-700 mb-2">{workout.title}</h2>
               <p className="text-gray-600 mb-2">{workout.duration} • {workout.level}</p>
               <p className="text-gray-700 mb-4">{workout.description}</p>
-              <button className="bg-fitness-red-600 text-white px-4 py-2 rounded font-semibold hover:bg-fitness-red-700 transition-colors">
+              <button 
+                className="bg-fitness-red-600 text-white px-4 py-2 rounded font-semibold hover:bg-fitness-red-700 transition-colors"
+                onClick={() => handleViewDetails(workout.title)}
+              >
                 View Details
               </button>
             </div>
@@ -25,7 +38,10 @@ const WorkoutsPage = () => {
       <div className="bg-fitness-red-50 rounded-lg p-6 border border-fitness-red-200">
         <h2 className="text-2xl font-bold text-fitness-red-700 mb-4">Custom Workout Plan</h2>
         <p className="text-gray-700 mb-4">Need a personalized workout plan? Let us help you create a program tailored to your specific goals and needs.</p>
-        <button className="bg-fitness-red-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-fitness-red-700 transition-colors">
+        <button 
+          className="bg-fitness-red-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-fitness-red-700 transition-colors"
+          onClick={handleCreatePlan}
+        >
           Create My Plan
         </button>
       </div>

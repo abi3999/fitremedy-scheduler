@@ -1,4 +1,3 @@
-
 import { useState } from 'react'
 
 const RemediesPage = () => {
@@ -9,6 +8,11 @@ const RemediesPage = () => {
     remedy.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
     remedy.symptoms.some(symptom => symptom.toLowerCase().includes(searchTerm.toLowerCase()))
   )
+  
+  const handleViewDetails = (remedyTitle: string) => {
+    console.log(`View details clicked for: ${remedyTitle}`)
+    alert(`Remedy details for ${remedyTitle} coming soon!`)
+  }
   
   return (
     <div className="container mx-auto px-4 py-8">
@@ -56,7 +60,10 @@ const RemediesPage = () => {
                   </div>
                 </div>
                 <p className="text-gray-700 mb-4">{remedy.description}</p>
-                <button className="bg-fitness-red-600 text-white px-4 py-2 rounded font-semibold hover:bg-fitness-red-700 transition-colors">
+                <button 
+                  className="bg-fitness-red-600 text-white px-4 py-2 rounded font-semibold hover:bg-fitness-red-700 transition-colors"
+                  onClick={() => handleViewDetails(remedy.title)}
+                >
                   View Details
                 </button>
               </div>

@@ -1,5 +1,15 @@
 
 const NutritionPage = () => {
+  const handleViewRecipe = (recipeTitle: string) => {
+    console.log(`View recipe clicked for: ${recipeTitle}`)
+    alert(`Recipe details for ${recipeTitle} coming soon!`)
+  }
+
+  const handleCreateMealPlan = () => {
+    console.log('Create meal plan clicked')
+    alert('Meal planner coming soon!')
+  }
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-fitness-red-700 mb-6">Nutrition Guide</h1>
@@ -39,7 +49,10 @@ const NutritionPage = () => {
                 <span>{recipe.calories}</span>
               </div>
               <p className="text-gray-700 mb-4">{recipe.description}</p>
-              <button className="bg-fitness-red-600 text-white px-4 py-2 rounded font-semibold hover:bg-fitness-red-700 transition-colors">
+              <button 
+                className="bg-fitness-red-600 text-white px-4 py-2 rounded font-semibold hover:bg-fitness-red-700 transition-colors"
+                onClick={() => handleViewRecipe(recipe.title)}
+              >
                 View Recipe
               </button>
             </div>
@@ -50,7 +63,10 @@ const NutritionPage = () => {
       <div className="bg-fitness-red-50 rounded-lg p-6 border border-fitness-red-200">
         <h2 className="text-2xl font-bold text-fitness-red-700 mb-4">Meal Planning</h2>
         <p className="text-gray-700 mb-4">Need help planning your meals? Our meal planner can help you create balanced meals that align with your fitness goals.</p>
-        <button className="bg-fitness-red-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-fitness-red-700 transition-colors">
+        <button 
+          className="bg-fitness-red-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-fitness-red-700 transition-colors"
+          onClick={handleCreateMealPlan}
+        >
           Create Meal Plan
         </button>
       </div>
